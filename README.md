@@ -1,218 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeNova | AI-Powered Coding Platform</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeNova | AI Coding Platform</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --primary: #0A0E27;
-            --secondary: #0066FF;
-            --accent: #00F0FF;
-            --accent-2: #8B5CF6;
-            --text: #FFFFFF;
-            --text-muted: #94A3B8;
-            --surface: #0F172A;
-            --surface-light: #1E293B;
-            --gradient-1: linear-gradient(135deg, #0066FF 0%, #8B5CF6 100%);
-            --gradient-2: linear-gradient(135deg, #00F0FF 0%, #0066FF 100%);
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Space Grotesk', sans-serif;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      background: #0A0E27;
+      color: white;
+      line-height: 1.6;
+    }
 
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: var(--primary);
-            color: var(--text);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+    /* NAV */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 8%;
+      background: rgba(10,14,39,0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
 
-        /* NAV */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(10, 14, 39, 0.8);
-            backdrop-filter: blur(20px);
-        }
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+    }
 
-        .logo {
-            display: flex;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+    .nav-links a {
+      color: #aaa;
+      text-decoration: none;
+    }
 
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-        }
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
 
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            padding: 8rem 5% 4rem;
-        }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
 
-        .hero h1 {
-            font-size: 4rem;
-        }
+    .hero p {
+      color: #aaa;
+      max-width: 600px;
+    }
 
-        .hero p {
-            color: var(--text-muted);
-            margin-top: 1rem;
-        }
+    .btn {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #0066FF;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
 
-        /* FEATURES */
-        .features {
-            padding: 6rem 5%;
-        }
+    /* FEATURES */
+    .features {
+      padding: 80px 8%;
+      text-align: center;
+    }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
 
-        .feature-card {
-            background: var(--surface);
-            padding: 2rem;
-            border-radius: 16px;
-        }
+    .card {
+      background: #111833;
+      padding: 20px;
+      border-radius: 12px;
+    }
 
-        /* BRAND */
-        .brand-names {
-            padding: 6rem 5%;
-            background: var(--surface);
-        }
-
-        .brand-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .brand-item {
-            background: var(--primary);
-            padding: 1.5rem;
-            border-radius: 12px;
-        }
-
-        /* VISUAL IDENTITY */
-        .visual-identity {
-            padding: 6rem 5%;
-        }
-
-        .identity-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .identity-card {
-            background: var(--surface);
-            padding: 2rem;
-            border-radius: 16px;
-        }
-
-        /* FIXED BLOCK (your error was here) */
-        .color-swatches {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-
-        .swatch {
-            height: 50px;
-            border-radius: 8px;
-        }
-
-        .swatch:nth-child(1) { background: #0066FF; }
-        .swatch:nth-child(2) { background: #00F0FF; }
-        .swatch:nth-child(3) { background: #8B5CF6; }
-        .swatch:nth-child(4) { background: #0F172A; }
-
-    </style>
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav>
+  <!-- NAV -->
+  <nav>
     <div class="logo">CodeNova</div>
     <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Brands</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#features">Features</a></li>
     </ul>
-</nav>
+  </nav>
 
-<!-- HERO -->
-<section class="hero">
-    <h1>AI-Powered Coding Platform</h1>
-    <p>Build, run, and learn coding in one modern interface.</p>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>AI Powered Coding Platform</h1>
+    <p>Build, run and learn coding with a modern developer experience.</p>
+    <a class="btn" href="#features">Get Started</a>
+  </section>
 
-<!-- FEATURES -->
-<section class="features">
-    <div class="features-grid">
-        <div class="feature-card">Run HTML instantly</div>
-        <div class="feature-card">AI Code Assistant</div>
-        <div class="feature-card">Multi-language support</div>
+  <!-- FEATURES -->
+  <section id="features" class="features">
+    <h2>Features</h2>
+
+    <div class="grid">
+      <div class="card">⚡ Fast Code Execution</div>
+      <div class="card">🤖 AI Assistant</div>
+      <div class="card">🌐 Multi Language Support</div>
+      <div class="card">🎨 Clean UI</div>
     </div>
-</section>
+  </section>
 
-<!-- BRAND -->
-<section class="brand-names">
-    <div class="brand-grid">
-        <div class="brand-item">CodeNova AI</div>
-        <div class="brand-item">Blackbox Style Editor</div>
-        <div class="brand-item">Dev Studio Pro</div>
-    </div>
-</section>
-
-<!-- VISUAL IDENTITY -->
-<section class="visual-identity">
-    <div class="identity-grid">
-
-        <div class="identity-card">
-            <h3>Color System</h3>
-            <div class="color-swatches">
-                <div class="swatch"></div>
-                <div class="swatch"></div>
-                <div class="swatch"></div>
-                <div class="swatch"></div>
-            </div>
-        </div>
-
-    </div>
-</section>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 CodeNova. All rights reserved.
+  </footer>
 
 </body>
 </html>
